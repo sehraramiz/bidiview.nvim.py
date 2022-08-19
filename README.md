@@ -1,20 +1,22 @@
-VimPlug Install:
-
-Plug 'sehraramiz/bidiview', { 'do': ':UpdateRemotePlugins' }
-
-
 <p dir="rtl">
 
+یه پنجره‌ نئوویم که پنجره‌ی کنونی رو آینه میکنه و کلمات فارسی رو به شکل "صحیح" نشون میده.
+
+نصب با VimPlug :
+
+~~~lua
+Plug 'sehraramiz/bidiview', { 'do': ':UpdateRemotePlugins' }
+nnoremap <Leader>bd :ShowBidiView<CR>
+nnoremap <Leader>bdx :HideBidiView<CR>
+~~~
+
+اگه برای متن‌های درهم فارسی انگلیسی بخوایم نمایش کاراکتر‌ها و جهت حرکت رو (وسط انجام کار) عوض کنیم، مثلا با فشردن کلید e که توقع داریم بریم آخر کلمه (فارسی) میریم اولش، که در اصل همون آخرش هست و در این حالات مغزمون درد خواهد گرفت و وسط یه کد زدن ساده یه چنتا کلمه فارسی جریان کارمون خراب میشه.
+
+روی ترمینال‌های [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) و [st](https://st.suckless.org/) چون اینا ترتیب نمایش کاراکترای فارسی رو برعکس نمیکنن.
+روی هر ترمینالی که ترتیب کاراکترها رو دستکاری نکنه استفاده شود.
+
+![bidiview](./bidiview.gif)
+
+چون به نظرم  یه جاهایی در مقابل چپ به راست مقاومت نکنیم بهتر هست. [کج و کوله بخون، روون ویرایش کن](http://sehraramiz.ir/ltr.html)
+
 </p>
-
-a windows that shows bidirectional view of the current buffer
-from this:
-  '<p>یک ﻢﺘﻧ ﻑﺍﺮﺳی ﻭ english ﻕﺎﻃی ﺩﺭ یک html ﺎﺴﺗ.</p>'
-to this:
-  '<p>کی ﻦﺘﻣ یﺱﺭﺎﻓ ﻭ english یﻁﺎﻗ ﺭﺩ کی html ﺖﺳﺍ.</p>'
-
-Tested on simple terminal, rxvt-unicode, xterm because they dont change the character
-order
-use it on any terminal emulator that does not change the order of characters on screen
-for the sake of readibility
-
