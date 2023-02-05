@@ -222,6 +222,6 @@ class BidiView:
             self.nvim.call("nvim_win_close", 0, True)
         except Exception as e:
             self.nvim.err_write(str(e))
-        else:
+        finally:
             self._unset_window_binds(wid=self.view_wid)
             self.view_wid = -1
