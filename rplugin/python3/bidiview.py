@@ -218,10 +218,10 @@ class BidiView:
     @pynvim.function("HideBidiView")
     def hide_bidi_view(self, *args):
         try:
+            self._unset_window_binds(wid=self.view_wid)
             self.nvim.command(f"bwipeout {self.view_bid}")
             self.nvim.call("nvim_win_close", 0, True)
         except Exception as e:
             self.nvim.err_write(str(e))
         finally:
-            self._unset_window_binds(wid=self.view_wid)
             self.view_wid = -1
